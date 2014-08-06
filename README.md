@@ -1,7 +1,5 @@
-simpledroidrest
-===============
-
 Simple Droid Rest Client
+===============
 
 
 # Usage
