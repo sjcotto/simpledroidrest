@@ -1,6 +1,9 @@
 Simple Droid Rest Client
 ===============
 
+# Install
+
+Just clone this project and add it as library, more info at http://developer.android.com/tools/projects/projects-eclipse.html#SettingUpLibraryProject
 
 # Usage
 
