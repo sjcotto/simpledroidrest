@@ -18,7 +18,6 @@ import android.util.Log;
 public abstract class DroidRequest {
 
 	private static final String URL_EMPTY = "URL Malformed";
-	private static final String SUCCESS = "success";
 	protected static final String NULL_RESPONSE = "null response form the server";
 	private static final String LOG_TAG = "DroidRequest";
 	private static final String X_ACCESS_TOKEN = "X-AUTH-TOKEN";
@@ -29,6 +28,7 @@ public abstract class DroidRequest {
 	protected String accessToken = null;
 
 	protected Map<String, String> headers = new HashMap<String, String>();
+	public static boolean loggEnabled = true;
 
 	public abstract void onSuccess(String jsonObject);
 
@@ -67,7 +67,7 @@ public abstract class DroidRequest {
 			}
 
 			protected void onPostExecute(DroidResponse result) {
-				if (result.isSuccess()) {
+				if (result!=null && result.isSuccess()) {
 					onSuccess(result.getData());
 				} else {
 					onFailure(result);
@@ -99,7 +99,11 @@ public abstract class DroidRequest {
 	private void safeLog(String string) {
 
 		try {
-			Log.v(LOG_TAG, string);
+
+			if (loggEnabled) {
+				Log.v(LOG_TAG, string);
+			}
+
 		} catch (Exception e) {
 		}
 
@@ -180,7 +184,7 @@ public abstract class DroidRequest {
 
 		String response = HTTPUtil.getStringFromHttpResponse(execute);
 
-		safeLog("Response " + response);
+		//safeLog("Response " + response);
 
 		DroidResponse res = new DroidResponse();
 		res.setCode(execute.getStatusLine().getStatusCode());
