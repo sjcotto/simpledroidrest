@@ -9,7 +9,7 @@ Just clone this project and add it as library, more info at http://developer.and
 
 ## Get Method
 
-```
+```Java
 DroidRequest request = new DroidRequest() {
 			{
 				this.url = "http://...";
@@ -31,7 +31,7 @@ DroidRequest request = new DroidRequest() {
 
 ## Post Method
 
-```
+```Java
 public void testPost() throws Exception {
 
 		final JSONObject json = new JSONObject();
@@ -62,7 +62,7 @@ public void testPost() throws Exception {
 
 ## Put Method
 
-```
+```Java
 public void testPut() throws Exception {
 
 		final JSONObject json = new JSONObject();
@@ -94,7 +94,7 @@ public void testPut() throws Exception {
 
 ## Delete Method
 
-```
+```Java
 public void testDelete() throws Exception {
 
 		DroidRequest request = new DroidRequest() {
@@ -118,3 +118,12 @@ public void testDelete() throws Exception {
 		request.make();
 	}
 ```
+
+#Sinc
+
+'''Java
+	SinDroidRequest request = new SinDroidRequest("url",HTTPMethod.GET, null);
+	DroidResponse response = request.sendRequest();
+	
+	String data = response.getData();
+'''
