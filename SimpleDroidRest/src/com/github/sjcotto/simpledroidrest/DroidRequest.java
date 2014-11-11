@@ -77,7 +77,7 @@ public abstract class DroidRequest {
 		}.execute();
 	}
 
-	protected DroidResponse sendRequest() throws Exception {
+	public DroidResponse sendRequest() throws Exception {
 
 		if (accessToken != null && headers != null) {
 			headers.put(X_ACCESS_TOKEN, accessToken);
@@ -100,9 +100,9 @@ public abstract class DroidRequest {
 
 		try {
 
-			if (loggEnabled) {
+			//if (loggEnabled) {
 				Log.v(LOG_TAG, string);
-			}
+			//}
 
 		} catch (Exception e) {
 		}
@@ -184,7 +184,7 @@ public abstract class DroidRequest {
 
 		String response = HTTPUtil.getStringFromHttpResponse(execute);
 
-		//safeLog("Response " + response);
+		safeLog("Response " + response);
 
 		DroidResponse res = new DroidResponse();
 		res.setCode(execute.getStatusLine().getStatusCode());
