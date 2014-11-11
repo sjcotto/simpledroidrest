@@ -121,9 +121,9 @@ public void testDelete() throws Exception {
 
 #Sinc
 
-'''Java
+```Java
 	SinDroidRequest request = new SinDroidRequest("url",HTTPMethod.GET, null);
 	DroidResponse response = request.sendRequest();
 	
 	String data = response.getData();
-'''
+```
